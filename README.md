@@ -4,24 +4,42 @@ A production-ready **Flask-based REST API** that generates QR codes for validate
 The application includes **input validation**, **rate limiting**, **automated testing**, **Dockerization**, and **CI safeguards** to ensure reliability and safe deployment.
 
 ---
+### Live Demo
+**Production URL (Render):**  
+👉 https://qr-code-generator-xn0j.onrender.com
+
+---
+### Screenshots
+#### Home Page
+![Home Page](docs/screenshots/home.png)
+
+#### Generated QR Code
+![Generated QR Code](docs/screenshots/qr_code.png)
+
+---
 ### Features
 - Generate QR codes for valid URLs
-- Strong input validation (request body, URL format)
+- Strong request and URL validation
 - Rate limiting to prevent abuse
-- Automated unit tests using `pytest`
-- Dockerized for consistent environments
-- CI protection to block deployment on test failures
-- Deployed on **Render**
+- Stateless QR generation (no files written to disk)
+- Automated tests with `pytest`
+- Dockerized for consistent builds
+- CI enforcement to block deployments on test failures
+- Production deployment on **Render**
 ---
 ### Tech Stack
 
-- **Backend**: Python, Flask
-- **Validation**: Custom validators
-- **Rate Limiting**: Flask-Limiter
-- **Testing**: Pytest
-- **Containerization**: Docker
-- **Deployment**: Render
-- **CI**: GitHub Actions
+| Layer | Technology |
+|-----|-----------|
+| Backend | Python, Flask |
+| Validation | Custom validators |
+| Rate Limiting | Flask-Limiter |
+| QR Generation | qrcode, Pillow |
+| Testing | Pytest |
+| Containerization | Docker |
+| CI/CD | GitHub Actions |
+| Hosting | Render |
+
 ---
 ### API Endpoint
 
@@ -79,6 +97,8 @@ When exceeded:
 ```http
 HTTP/1.1 429 Too Many Requests
 ```
+This protects the service from brute-force or automated abuse.
+
 ---
 ### Project Structure
 ```text
@@ -92,6 +112,9 @@ qr-code-generator/
 ├── tests/
 │   ├── __init__.py
 │   └── test_validation.py
+│
+├── docs/
+│   └── screenshots/
 │
 └── .github/
     └── workflows/
