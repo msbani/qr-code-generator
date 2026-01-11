@@ -1,4 +1,4 @@
-## QR Code Generator API
+## QR Code Generator App
 
 A production-ready **Flask-based REST API** that generates QR codes for validated URLs.  
 The application includes **input validation**, **rate limiting**, **automated testing**, **Dockerization**, and **CI safeguards** to ensure reliability and safe deployment.
